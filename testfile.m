@@ -1,5 +1,6 @@
 clear all
-close all
+
+%% close all
 
 %% Modulating Signal
 m = 1
@@ -36,7 +37,10 @@ plot(t,Am);
 title('Amplitude Modulation')
 
 %% Project Proper || Amplitude Modulation
- 
+test = vc.*vm
+figure(10);
+plot(test)
+
 %% Modulated Signal
 %Read the audio signal [Modulating Signal]
 [voice_message_signal, Fs] = audioread('epic_voice.wav')
@@ -65,8 +69,9 @@ title('Carrier Signal')
 carrier_signal = vc
 
 minLength = min(length(voice_message_signal), length(vc))
-voice_message_signal = voice_message_signal(1:minLength)
-vc = vc(1:minLength)
+% minLength = minLength/2
+voice_message_signal = voice_message_signal(1:minLength);
+vc = vc(1:minLength);
 
 
 %% Voice Modulated Signal
